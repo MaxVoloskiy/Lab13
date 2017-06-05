@@ -22,7 +22,9 @@ class TicketCounterSimulation:
 
     # Handles simulation rule #1
     def _handleArrive(self, curTime):
-        pass
+        self._numPassengers += 1
+        self._passengerQ.enqueue(Passenger(self._numPassengers, curTime + 1))
+        print("Time\t {}: Passenger {} arrived.".format(curTime + 1, self._numPassengers))
 
     # Handles simulation rule #2
     def _handleBeginService(self, curTime):
